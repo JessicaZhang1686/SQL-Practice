@@ -15,8 +15,8 @@ II. Contents: Projects featured in this repository
 * Add new rows of data into a table or view (INSERT)
 * Update data information (UPDATE)
 * Remove rows from tables or views (DELETE)
-* Use aggregate functions
 * Create stored procedures with SQL injections
+* Use system defined aggregate and scalar functions
 
 
 2. Normalize a Dataset and Establish Relationships within the Dataset

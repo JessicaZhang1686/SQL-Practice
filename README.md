@@ -26,6 +26,4 @@ II. Contents: Projects featured in this repository
 *	Use JOIN to create a consolidated table
 *	Utilize appropriate constrains and indexes
 
-3. Backup and Restore
-*	Create a full backup
-*	Perform a restore
+

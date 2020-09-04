@@ -1,10 +1,10 @@
 # SQL-Practice
 
-What is the purpose of this repository?
+I. What is the purpose of this repository?
 
 The purpose of this repository is to create this repository to document my lesson practice and project work which demonstrate my skills and proficiencies with SQL.
 
-Contents: Projects featured in this repository
+II. Contents: Projects featured in this repository
 
 1. Define Data Structures and Manipulate Data with SQL Statements
 * Generate a new table or view of the specified type (CREATE)

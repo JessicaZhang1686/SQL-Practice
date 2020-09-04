@@ -2,7 +2,7 @@
 
 I. What is the purpose of this repository?
 
-The purpose of this repository is to create this repository to document my lesson practice and project work which demonstrate my skills and proficiencies with SQL.
+The purpose of this repository is to document my lesson practice and project work which demonstrate my skills and proficiencies with SQL.
 
 II. Contents: Projects featured in this repository
 

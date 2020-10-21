@@ -1,0 +1,58 @@
+CREATE DATABASE deposit;
+
+USE deposit;
+
+CREATE TABLE account 
+(
+    customer_id int,
+    account_id int,
+    account_type char(100)
+);
+
+CREATE TABLE deposit 
+(
+    account_id int,
+	deposit_date date,
+    deposit_amount int
+);
+
+INSERT INTO account 
+		(customer_id, account_id, account_type)
+		VALUES	('1','1001','Checking'),
+				('1','1002','Savings'),
+				('2','2001','Checking'),
+				('2','2002','Savings'),
+				('3','3001','Checking'),
+				('3','3002','Savings');
+
+INSERT INTO deposit 
+		(account_id, deposit_date, deposit_amount)
+		VALUES	('1001','2020-01-01','100'),
+				('1001','2020-01-02','300'),
+				('1001','2020-01-05','200'),
+				('1002','2020-01-01','50'),
+				('1002','2020-01-02','200'),
+				('1002','2020-01-03','400'),
+				('1002','2020-01-04','100'),
+				('2001','2020-01-02','29'),
+				('2001','2020-01-04','18'),
+				('2001','2020-01-05','29'),
+				('2002','2020-01-03','100'),
+				('2002','2020-01-04','200'),
+				('2002','2020-01-05','300'),
+				('3001','2020-01-02','10'),
+				('3001','2020-01-03','40'),
+				('3002','2020-01-06','100'),
+				('3002','2020-01-08','300');
+
+SELECT * FROM deposit;
+
+SELECT  customer_id,
+		deposit_date
+FROM   (SELECT	*, row_number() Over (PARTITION BY customer_id ORDER BY deposit_date) AS row_num
+		FROM (SELECT *, sum(deposit_amount) Over (PARTITION BY customer_id ORDER BY deposit_date) As deposit_amount_cum
+				From (SELECT customer_id, deposit_date, sum(deposit_amount) AS deposit_amount    
+						FROM account a INNER JOIN  deposit b ON a.account_id = b.account_id
+						GROUP BY customer_id, deposit_date) AS c) AS d
+		WHERE deposit_amount_cum >= 500) AS e
+WHERE	row_num = 1;
